@@ -1,0 +1,1 @@
+let XMLHttpRequest = required('xmlhttprequest').XMLHttpRequest;
