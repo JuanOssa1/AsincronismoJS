@@ -12,7 +12,7 @@ function fetchData(url_api, callback){
          */
         if(xhttp.readyState===4){
             if(xhttp.status===200){/**Este es el status de la peticion */
-                callback(null, JSON.parse(xhttp.responseText))//Aqui obtengo el llamado y el rimer null
+                return callback(null, JSON.parse(xhttp.responseText))//Aqui obtengo el llamado y el rimer null
                 //seria el error pero como no queremos que envie error lo dejamos como null
             }else{
                 const error = new Error('Error' + url_api);
@@ -36,3 +36,10 @@ fetchData(API, function(error1, data1){
         }) 
     }) 
 });
+/**
+ * En este encadenamiento basicamente lo que estoy haciendo es ir entrando de a pcoos en el personaje 
+ * que quiero y va llamando la funcion (callback) las veces que sea necesrio para poder cumplir con el requerimiento
+ * de llegar a la dimension en la que se encuentra
+ * todo esto se hace porque no puedo hacer peticiones al mismo tiempo si no
+ * una a la vez
+ */
